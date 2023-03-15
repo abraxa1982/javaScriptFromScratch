@@ -19,6 +19,7 @@ let myParentsJob = 'some other';
 // Null (wie immer), Symbol (unique und nicht änderbar) und BigInt
 
 
+/*
 let javaScriptIsFun = true;
 console.log(javaScriptIsFun);
 
@@ -41,3 +42,11 @@ console.log(typeof year);
 
 // null
 console.log(typeof null);
+*/
+let age = 30;
+
+age = 31;
+
+const birthyear = 1992;
+
+//var ist veraltet, let nutzen

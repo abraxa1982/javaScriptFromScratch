@@ -6,8 +6,9 @@ console.log(country);
 console.log(continent);
 console.log(population);
 
-let isIsland = false;
+const isIsland = false;
 let language;
+language = 'german';
 
 console.log(typeof isIsland);
 console.log(typeof population);
