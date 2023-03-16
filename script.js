@@ -53,6 +53,7 @@ const birthyear = 1992;*/
 
 //Operatoren
 
+
 const now = 2037;
 
 const ageJonas = now - 1991;
@@ -60,7 +61,7 @@ const ageSarah = now - 2018;
 
 console.log(ageJonas, ageSarah)
 // 2**3 Ist 2³
-console.log(ageJonas * 2, ageJonas / 10, 2 **3 )
+/*console.log(ageJonas * 2, ageJonas / 10, 2 **3 )
 
 const firstname = 'Jonas';
 const lastname = 'Irgendwas';
@@ -83,3 +84,14 @@ console.log(ageJonas > ageSarah); // >, <, >=, <=
 console.log(ageSarah >=  18);
 
 const isFullAge = ageSarah >=  18;
+*/
+
+//Operator Precedence (lässt sich googlen)
+
+let x, y;
+x = y = 25 - 10 - 5; // Das geht tatsächlich
+console.log(x, y);
+
+const averageAge = (ageJonas + ageSarah) / 2;
+
+console.log(averageAge)
