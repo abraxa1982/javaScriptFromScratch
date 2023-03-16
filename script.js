@@ -43,10 +43,43 @@ console.log(typeof year);
 // null
 console.log(typeof null);
 */
-let age = 30;
+/*let age = 30;
 
 age = 31;
 
-const birthyear = 1992;
+const birthyear = 1992;*/
 
 //var ist veraltet, let nutzen
+
+//Operatoren
+
+const now = 2037;
+
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
+
+console.log(ageJonas, ageSarah)
+// 2**3 Ist 2³
+console.log(ageJonas * 2, ageJonas / 10, 2 **3 )
+
+const firstname = 'Jonas';
+const lastname = 'Irgendwas';
+
+console.log(firstname + ' ' + lastname)
+
+//typeof ist auch ein Operator
+
+// Assignment-Operators
+
+let x = 10+5; // = 15
+x += 10; // wie überall sonst auch, gell ;) 25
+x *= 4; // 100
+x++; // wie überall 101
+x--; // 100
+console.log(x);
+
+// Comparison Operators
+console.log(ageJonas > ageSarah); // >, <, >=, <=
+console.log(ageSarah >=  18);
+
+const isFullAge = ageSarah >=  18;
