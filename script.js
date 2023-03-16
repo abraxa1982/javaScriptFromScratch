@@ -1,97 +1,44 @@
-/*
-let js = 'amazing';
-// console.log(40+8+23-10);
+// Coding Challenge #1
+// Mark and John are trying to compare their BMI (Body Mass Index), which is
+// calculated using the formula:
+//     BMI = mass / height ** 2 = mass / (height * height) (mass in kg
+// and height in meter).
+// Your tasks:
+//     1. Store Mark's and John's mass and height in variables
+// 2. Calculate both their BMIs using the formula (you can even implement both
+// versions)
+// 3. Create a Boolean variable 'markHigherBMI' containing information about
+// whether Mark has a higher BMI than John.
+//     Test data:
+//     § Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95
+// m tall.
+// § Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76
+// m tall.
+//     GOOD LUCK 😀
 
-let firstName = 'Meike';
-console.log(firstName);
+let markHeight, markWeight, johnHeight, johnWeight;
 
-//Konstante
-let PI = 3.1415;
+markHeight = 1.69;
+markWeight = 78;
+johnHeight = 1.95;
+johnWeight = 92;
 
-let myFirstJob = 'Programmer';
-let myParentsJob = 'some other';
-*/
+let markBMI = markWeight / markHeight**2;
+let johnBMI = johnWeight / johnHeight**2;
+console.log(markBMI, johnBMI);
 
-// let 3years = 3 - nicht erlaubt - wie überall, Dollarzeichen sind aber erlaubt
-// name ist erlaubt, aber kann zu Fehlern führen
+let markHigherBMI = markBMI > johnBMI;
+console.log(markHigherBMI);
 
-// Primitive Datentypen: Number (immer float quasi), String, Boolean, Undefined (Deklariert aber nicht befüllt),
-// Null (wie immer), Symbol (unique und nicht änderbar) und BigInt
+// zweite Testdaten. Ich hätte gerne eine Funktion geschrieben ;)
+markHeight = 1.88;
+markWeight = 95;
+johnHeight = 1.76;
+johnWeight = 85;
 
+markBMI = markWeight / markHeight**2;
+johnBMI = johnWeight / johnHeight**2;
+console.log(markBMI, johnBMI);
 
-/*
-let javaScriptIsFun = true;
-console.log(javaScriptIsFun);
-
-// console.log(typeof true);
-console.log(typeof javaScriptIsFun);
-// console.log(typeof 23);
-// console.log(typeof 'Jonas');
-
-javaScriptIsFun = 'YES!';
-console.log(typeof javaScriptIsFun);
-
-// undefined
-let year;
-console.log(year);
-console.log(typeof year);
-
-year = 1991;
-console.log(year);
-console.log(typeof year);
-
-// null
-console.log(typeof null);
-*/
-/*let age = 30;
-
-age = 31;
-
-const birthyear = 1992;*/
-
-//var ist veraltet, let nutzen
-
-//Operatoren
-
-
-const now = 2037;
-
-const ageJonas = now - 1991;
-const ageSarah = now - 2018;
-
-console.log(ageJonas, ageSarah)
-// 2**3 Ist 2³
-/*console.log(ageJonas * 2, ageJonas / 10, 2 **3 )
-
-const firstname = 'Jonas';
-const lastname = 'Irgendwas';
-
-console.log(firstname + ' ' + lastname)
-
-//typeof ist auch ein Operator
-
-// Assignment-Operators
-
-let x = 10+5; // = 15
-x += 10; // wie überall sonst auch, gell ;) 25
-x *= 4; // 100
-x++; // wie überall 101
-x--; // 100
-console.log(x);
-
-// Comparison Operators
-console.log(ageJonas > ageSarah); // >, <, >=, <=
-console.log(ageSarah >=  18);
-
-const isFullAge = ageSarah >=  18;
-*/
-
-//Operator Precedence (lässt sich googlen)
-
-let x, y;
-x = y = 25 - 10 - 5; // Das geht tatsächlich
-console.log(x, y);
-
-const averageAge = (ageJonas + ageSarah) / 2;
-
-console.log(averageAge)
+markHigherBMI = markBMI > johnBMI;
+console.log(markHigherBMI);
