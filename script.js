@@ -28,18 +28,24 @@
 //     GOOD LUCK 😀
 
 
-const markHeight = 1.69;
-const markWeight = 128;
-const johnHeight = 1.95;
-const johnWeight = 92;
+// Type Conversion
+const inputYear= "1991";
+console.log(Number(inputYear)+18);
+console.log(inputYear+18);
 
-let markBMI = markWeight / markHeight**2;
-let johnBMI = johnWeight / johnHeight**2;
+console.log(Number("Meike"));
 
-if (johnBMI > markBMI) {
-    console.log(`John's BMI (${johnBMI}) is higher than Mark's! (${markBMI})`);
-} else if(markBMI > johnBMI) {
-    console.log(`Marks's BMI (${markBMI}) is higher than Johns's(${johnBMI})!`);
-} else {
-    console.log(`Both BMI(${markBMI}) are equal!`);
-}
+console.log(String(23), 23);
+
+//Type coercion
+console.log('I am ' + 41 + ' years old');
+console.log('I am ' + '41' + ' years old');
+// console.log('I am ' + String(41) + ' years old');
+console.log('23' - '10' - 3);
+console.log('23' + '10' +3);
+console.log('23' * '10');
+console.log('23' /  '10');
+
+let n = '1' + 1;
+n = n - 1;
+console.log(n);
