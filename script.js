@@ -28,7 +28,7 @@
 //     GOOD LUCK 😀
 
 
-// Type Conversion
+/*// Type Conversion
 const inputYear= "1991";
 console.log(Number(inputYear)+18);
 console.log(inputYear+18);
@@ -48,4 +48,32 @@ console.log('23' /  '10');
 
 let n = '1' + 1;
 n = n - 1;
-console.log(n);
+console.log(n);*/
+
+// 5 falsy values: 0, '', undefined, null, NaN -> Sind nicht false aber werden dazu konvertiert, alles andere wird true
+
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Meike'));
+console.log(Boolean({}));
+
+//coercion passiert bei if/else und bei boolean Operators
+
+const money = 0;
+
+if (money) {
+    console.log("Don't spend it all");
+} else {
+    console.log("You should get a job");
+}
+
+let height; // undefined
+height = 123; //defined
+height = 0; //gibt undefined aus in der schleife, weill 0 falsy ist
+
+
+if (height) {
+    console.log('height is defined');
+} else {
+    console.log('height is undefined');
+}
