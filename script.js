@@ -57,3 +57,20 @@ switch(day) {
     default:
         console.log('Not a valid day');
 }
+
+if (day ==='monday') {
+        console.log('Chill on Mondays');
+        console.log('Noch eine Reihe');
+} else if (day === 'tuesday') {
+        console.log('Grocery');
+} else if (day === 'wednesday' || day === 'thursday') {
+        console.log('Stuff');
+} else if (day === 'friday') {
+        console.log('TGIF');
+} else if (day === 'saturday') {
+        console.log('Weekend');
+} else if (day ===  'sunday') {
+        console.log('Weekend');
+} else {
+    console.log('Not a valid day');
+}
