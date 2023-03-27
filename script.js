@@ -18,15 +18,42 @@
 // § Data Bonus 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
 // § Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 // GOOD LUCK 😀
+//
+// dolfinsScore = (97 + 112 + 101)/3;
+// koalasScore  = (109 + 95 + 106)/3;
+// if (dolfinsScore > koalasScore && dolfinsScore >= 100) {
+//     console.log('dolphins won with ' + dolfinsScore + ' Points, koalas have ' + koalasScore );
+// } else if (koalasScore > dolfinsScore && koalasScore >= 100) {
+//     console.log('koalas won with ' + koalasScore + ' Points, dolphins have ' + dolfinsScore)
+// } else if (koalasScore === dolfinsScore && koalasScore >= 100) {
+//     console.log('draw is unentschieden in german')
+// } else {
+//     console.log('all below 100 Points in average')
+// }
 
-dolfinsScore = (97 + 112 + 101)/3;
-koalasScore  = (109 + 95 + 106)/3;
-if (dolfinsScore > koalasScore && dolfinsScore >= 100) {
-    console.log('dolphins won with ' + dolfinsScore + ' Points, koalas have ' + koalasScore );
-} else if (koalasScore > dolfinsScore && koalasScore >= 100) {
-    console.log('koalas won with ' + koalasScore + ' Points, dolphins have ' + dolfinsScore)
-} else if (koalasScore === dolfinsScore && koalasScore >= 100) {
-    console.log('draw is unentschieden in german')
-} else {
-    console.log('all below 100 Points in average')
+const day = 'wednesday';
+
+switch(day) {
+    case 'monday':
+        console.log('Chill on Mondays');
+        console.log('Noch eine Reihe');
+        break;
+    case 'tuesday':
+        console.log('Grocery');
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('Stuff');
+        break;
+    case 'friday':
+        console.log('TGIF');
+        break;
+    case 'saturday':
+        console.log('Weekend');
+        break;
+    case 'sunday':
+        console.log('Weekend');
+        break;
+    default:
+        console.log('Not a valid day');
 }
