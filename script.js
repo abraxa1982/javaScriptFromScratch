@@ -22,14 +22,26 @@ function logger(logString) {
 // logger(age2);
 
 // Arrow Functions
-const calcAge3 = birthYear => 2037-birthYear;
+// const calcAge3 = birthYear => 2037-birthYear;
+//
+// logger(calcAge3(1982))
+//
+// const yearsUntilRetirement = birthYear => {
+//     const age = 2023 - birthYear;
+//     const retirement = 67 - age;
+//     return retirement;
+// }
+//
+// logger('Years until retirement: ' + yearsUntilRetirement(1982))
 
-logger(calcAge3(1982))
-
-const yearsUntilRetirement = birthYear => {
-    const age = 2023 - birthYear;
-    const retirement = 67 - age;
-    return retirement;
+function cutFruitPieces(fruit) {
+    return fruit * 4;
+}
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+    return juice;
 }
 
-logger('Years until retirement: ' + yearsUntilRetirement(1982))
+logger(fruitProcessor(2,3));
