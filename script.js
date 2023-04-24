@@ -52,6 +52,7 @@
 //     bills[2] + tips[2],
 // ];
 // console.log(totals);
+/*
 
 const meike = {
     firstName: 'Meike',
@@ -81,3 +82,25 @@ console.log(meike);
 
 const output = `${meike.firstName} has ${meike.friends.length} friends and the best friend is ${meike['friends'][0]}.`;
 console.log(output);
+*/
+const meike = {
+    firstName: 'Meike',
+    lastName: 'Ziesecke',
+    birthYear: 1982,
+    job: 'developer',
+    friends: ['Nadine', 'Inga', 'Claudia'],
+    hasDriversLicense: true,
+
+    // calcAge: function () {
+    //     return 2037 - this.birthYear;
+    // }
+    calcAge: function () {
+        this.age= 2037 - this.birthYear;
+        return this.age;
+    },
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job} and has ${this.hasDriversLicense ? 'a' : 'no'} drivers license`
+    }
+}
+console.log(meike.calcAge());
+console.log(meike.getSummary());
