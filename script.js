@@ -145,7 +145,47 @@ tall.
 // } else {
 //     console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is the same as ${john.fullName}'s BMI (${john.calcBMI()})`)
 // }
+//
+// for (let rep =0; rep <= 10; rep++) {
+//     console.log('Lifting wheight repitition ' + rep)
+// }
 
-for (let rep =0; rep <= 10; rep++) {
-    console.log('Lifting wheight repitition ' + rep)
+const meike = [
+    'Meike',
+    'Ziesecke',
+    2037-1982,
+    'developer',
+     ['Nadine', 'Inga', 'Claudia']
+];
+// let types = [];
+//
+// for (let i = 0; i < meike.length ;i++) {
+//     console.log(meike[i]);
+//     // types[i]=typeof meike[i];
+//     types.push(typeof meike[i]);
+// }
+//
+// console.log(types)
+//
+// const years = [1991, 2007, 1969, 2020];
+//
+// const ages = [];
+//
+// for (let i = 0; i<years.length; i++) {
+//     ages.push(2037 - years[i]);
+// }
+// console.log(ages);
+
+for (let i = 0; i < meike.length ;i++) {
+    if( typeof meike[i] !== 'string') {
+        continue;
+    }
+    console.log(meike[i]);
+}
+
+for (let i = 0; i < meike.length ;i++) {
+    if( typeof meike[i] === 'number') {
+        break;
+    }
+    console.log(meike[i]);
 }
