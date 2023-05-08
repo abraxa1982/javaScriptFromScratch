@@ -145,6 +145,7 @@ tall.
 // } else {
 //     console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is the same as ${john.fullName}'s BMI (${john.calcBMI()})`)
 // }
+/*
 //
 // for (let rep =0; rep <= 10; rep++) {
 //     console.log('Lifting wheight repitition ' + rep)
@@ -188,4 +189,25 @@ for (let i = 0; i < meike.length ;i++) {
         break;
     }
     console.log(meike[i]);
+}
+*/
+// const meike = [
+//     'Meike',
+//     'Ziesecke',
+//     2037-1982,
+//     'developer',
+//     ['Nadine', 'Inga', 'Claudia']
+// ];
+//
+//
+// let rep = 1;
+// while (rep <= 10) {
+//     console.log(`Liftig wheights rep ${rep}`)
+//     rep ++;
+// }
+let dice = Math.trunc(Math.random() * 6) +1;
+
+while (dice !== 6) {
+    console.log(`You rolld a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) +1;
 }
