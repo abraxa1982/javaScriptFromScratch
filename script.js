@@ -120,28 +120,32 @@ respective BMI. Example: "John's BMI (28.3) is higher than Mark's (23.9)!"
 Test data: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m
 tall.
     GOOD LUCK 😀*/
-const mark = {
-    fullName: 'Mark Miller',
-    mass: 78,
-    height: 1.69,
-    calcBMI: function() {
-        return this.mass / (this.height * this.height);
-    }
-}
+// const mark = {
+//     fullName: 'Mark Miller',
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function() {
+//         return this.mass / (this.height * this.height);
+//     }
+// }
+//
+// const john = {
+//     fullName: 'John Smith',
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function() {
+//         return this.mass / (this.height * this.height);
+//     }
+// }
+//
+// if (mark.calcBMI() > john.calcBMI()) {
+//     console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${john.fullName}'s BMI (${john.calcBMI()})`);
+// } else if (john.calcBMI() > mark.calcBMI()) {
+//     console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is lower than ${john.fullName}'s BMI (${john.calcBMI()})`)
+// } else {
+//     console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is the same as ${john.fullName}'s BMI (${john.calcBMI()})`)
+// }
 
-const john = {
-    fullName: 'John Smith',
-    mass: 92,
-    height: 1.95,
-    calcBMI: function() {
-        return this.mass / (this.height * this.height);
-    }
-}
-
-if (mark.calcBMI() > john.calcBMI()) {
-    console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${john.fullName}'s BMI (${john.calcBMI()})`);
-} else if (john.calcBMI() > mark.calcBMI()) {
-    console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is lower than ${john.fullName}'s BMI (${john.calcBMI()})`)
-} else {
-    console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is the same as ${john.fullName}'s BMI (${john.calcBMI()})`)
+for (let rep =0; rep <= 10; rep++) {
+    console.log('Lifting wheight repitition ' + rep)
 }
