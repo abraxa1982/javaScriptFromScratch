@@ -1,29 +1,39 @@
 'use strict';
 
-const modal = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.close-modal');
-const btnsOpenModal = document.querySelectorAll('.show-modal');
-console.log(btnsOpenModal);
+//Select Elements
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1');
+const score0Element = document.querySelector('#score--0');
+const score1Element = document.getElementById('score--1'); //schneller, gehen aber beide
+const current0Element = document.getElementById('current--0');
+const current1Element = document.getElementById('current--1');
+const diceElement = document.querySelector('.dice');
+const btnRoll = document.querySelector('.btn--roll');
+const btnNew = document.querySelector('.btn--new');
+const btnHold = document.querySelector('.btn--hold');
+//starting Conditions
 
-const openModal = function () {
-    modal.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-};
+score0Element.textContent = 0;
+score1Element.textContent = 0;
+diceElement.classList.add('hidden');
 
-const closeModal = function () {
-    modal.classList.add('hidden');
-    overlay.classList.add('hidden');
-};
+const scores = [0,0];
+let currentScore = 0;
+let activePlayer = 0;
 
-for (let i = 0; i<btnsOpenModal.length; i++)
-    btnsOpenModal[i].addEventListener('click', openModal)
+btnRoll.addEventListener('click', function () {
+    const diceRoll = Math.trunc(Math.random() * 6) + 1;
+    diceElement.classList.remove('hidden');
+    diceElement.src = `dice-${diceRoll}.png`;
 
-btnCloseModal.addEventListener('click',closeModal );
-
-overlay.addEventListener('click', closeModal);
-
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && !modal.classList.contains('hidden'))
-        closeModal();
+    if (diceRoll !== 1) {
+        currentScore += diceRoll;
+        document.getElementById(`current--${activePlayer}`).textContent = currentScore;
+    } else {
+        document.getElementById(`current--${activePlayer}`).textContent = 0;
+        player0El.classList.toggle('player--active');
+        player1El.classList.toggle('player--active');
+        activePlayer = activePlayer === 0 ? 1 : 0;
+        currentScore = 0;
+        }
 })
