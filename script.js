@@ -81,43 +81,98 @@
 // const f = meike.calcAge;
 //
 // f();
+//
+// const meike = {
+//     birthYear: 1982,
+//     firstName: 'meike',
+//     calcAge: function () {
+//         console.log(2037 - this.birthYear);
+//         // Solution 1 vor ES6
+//         // const self = this; //um das Funktionsaufruf-Problem zu umgehen, alte Version
+//         // const isMillennial = function() {
+//         //     //console.log(this.birthYear >= 1981 && this.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
+//         //     console.log(self.birthYear >= 1981 && self.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
+//         // };
+//
+//         const isMillennial = () => console.log(this.birthYear >= 1981 && this.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
+//
+//         isMillennial(); // in einem regulären Funktionsaufruf ist this "undefined"
+//     },
+//     greet: () => console.log(`Hey ${this.firstName}!`) //In Arrow Function there is no own this Keyword, it will use the this keyword of the parent
+//     // greet: function() {
+//     //     console.log(`Hey ${this.firstName}!`)
+//     // }
+//
+// };
+// meike.greet();
+// meike.calcAge()
+//
+// //Arguments Keyword
+// const addExpr = function (a,b) {
+//     console.log(arguments)
+//     return a+b;
+// };
+// addExpr(2,5)
+// addExpr(2,5,4,3) //Wie absurd ist das hier einfach mehr hinzufügen zu dürfen? Alter!
+//
+// const addArrow = (a,b) => {
+//     // console.log(arguments) //Keine Arguments in Arrow Functions
+//     return a+b;
+// };
+// addArrow(2,3);
+// addArrow(2,3,4,5)
+//
+// let age = 41;
+// let oldAge = age;
+// age = 42;
+// console.log(age);
+// console.log(oldAge);
+//
+// const me = {
+//     name: 'meike',
+//     age: 41
+// }
+//
+// const friend = me;
+// friend.age = 27;
+//
+// console.log('friend: ',friend )
+// console.log('me: ', me)
 
-const meike = {
-    birthYear: 1982,
-    firstName: 'meike',
-    calcAge: function () {
-        console.log(2037 - this.birthYear);
-        // Solution 1 vor ES6
-        // const self = this; //um das Funktionsaufruf-Problem zu umgehen, alte Version
-        // const isMillennial = function() {
-        //     //console.log(this.birthYear >= 1981 && this.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
-        //     console.log(self.birthYear >= 1981 && self.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
-        // };
+//Primitive Types
+let lastname = 'Williams';
+let oldLastname = lastname;
+lastname = 'Davis';
 
-        const isMillennial = () => console.log(this.birthYear >= 1981 && this.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
+//Reference Types
+const jessica = {
+    firstname: 'Jessica',
+    lastname: 'Williams',
+    age: 27
+}
 
-        isMillennial(); // in einem regulären Funktionsaufruf ist this "undefined"
-    },
-    greet: () => console.log(`Hey ${this.firstName}!`) //In Arrow Function there is no own this Keyword, it will use the this keyword of the parent
-    // greet: function() {
-    //     console.log(`Hey ${this.firstName}!`)
-    // }
+const marriedJessica = jessica;
+marriedJessica.lastname = 'Davis'; //Nicht das gewünschte weil Beide nun geändert
+console.log(jessica);
+console.log(marriedJessica);
+// marriedJessica = {} - geht nicht weil const - let würde gehen, ist aber auch nicht was wir wollen
 
-};
-meike.greet();
-meike.calcAge()
 
-//Arguments Keyword
-const addExpr = function (a,b) {
-    console.log(arguments)
-    return a+b;
-};
-addExpr(2,5)
-addExpr(2,5,4,3) //Wie absurd ist das hier einfach mehr hinzufügen zu dürfen? Alter!
+const jessica2 = {
+    firstname: 'Jessica',
+    lastname: 'Williams',
+    age: 27,
+    family: ['Alice', 'Bob']
+}
 
-const addArrow = (a,b) => {
-    // console.log(arguments) //Keine Arguments in Arrow Functions
-    return a+b;
-};
-addArrow(2,3);
-addArrow(2,3,4,5)
+const jessicaCopy = Object.assign({}, jessica2); //Nur erste Ebene wird kopiert, damit Objecte darin wieder nur Adressen....
+
+jessicaCopy.lastname = 'Davis';
+console.log(jessica2);
+console.log(jessicaCopy);
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+console.log(jessica2);
+console.log(jessicaCopy);
+
