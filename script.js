@@ -1,178 +1,57 @@
 'use strict';
 
-// //Best Practices -> don't use var, use const or let
-// // Variables declaration at the top of the code
-// // after that all functions and only after all that the Rest of the code
-// // Never Arrow Functions as Method
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+// Data needed for first part of the section
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-//
-// console.log(me);
-// // console.log(job);
-// // console.log(year);
-//
-// console.log(addDecl(2,3));
-// // console.log(addExpr(4,5));
-// // console.log(addArrow(5,5));
-//
-// var me = "Meike";
-// let job = 'Developer';
-// const year = 1982;
-//
-// function addDecl(a,b) {
-//     return a+b;
-// }
-//
-// const addExpr = function (a,b) {
-//     return a+b;
-// };
-//
-// const addArrow = (a,b) => a+b;
-//
-//
-// // Example
-//
-// if (!numProduct) deleteShoppingCard();
-//
-// var numProduct = 10;
-//
-// function  deleteShoppingCard() {
-//     console.log('All Products deleted');
-// }
-//
-//
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
 
-//
-//
-// var x = 1;
-// let y= 2;
-// const z = 3;
+  order: function(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  }
+};
 
-// console.log(this);
+const arr = [2,3,4];
+const [x,y,z] = arr; //destructuring, not destroying
+console.log(x,y,z)
 
-// const calcAge = function (birthYear) {
-//     console.log(2037-birthYear);
-//     console.log(this);
-// }
-// calcAge(1982)
-//
-// const calcAgeArrow = birthYear => {
-//     console.log(2037-birthYear);
-//     console.log(this);
-// }
-// calcAgeArrow(1980)
-//
-//
-// const meike = {
-//     birthYear: 1982,
-//     calcAge: function () {
-//         console.log(2037 - this.birthYear);
-//     }
-// }
-// meike.calcAge();
-//
-// const mathilda={
-//     birthYear: 2017,
-// };
-//
-// mathilda.calcAge = meike.calcAge;
-// console.log(mathilda.calcAge());
-//
-// const f = meike.calcAge;
-//
-// f();
-//
-// const meike = {
-//     birthYear: 1982,
-//     firstName: 'meike',
-//     calcAge: function () {
-//         console.log(2037 - this.birthYear);
-//         // Solution 1 vor ES6
-//         // const self = this; //um das Funktionsaufruf-Problem zu umgehen, alte Version
-//         // const isMillennial = function() {
-//         //     //console.log(this.birthYear >= 1981 && this.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
-//         //     console.log(self.birthYear >= 1981 && self.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
-//         // };
-//
-//         const isMillennial = () => console.log(this.birthYear >= 1981 && this.birthYear<= 1996); //Warum macht man eine Funktion in einer Funktion? Hä?
-//
-//         isMillennial(); // in einem regulären Funktionsaufruf ist this "undefined"
-//     },
-//     greet: () => console.log(`Hey ${this.firstName}!`) //In Arrow Function there is no own this Keyword, it will use the this keyword of the parent
-//     // greet: function() {
-//     //     console.log(`Hey ${this.firstName}!`)
-//     // }
-//
-// };
-// meike.greet();
-// meike.calcAge()
-//
-// //Arguments Keyword
-// const addExpr = function (a,b) {
-//     console.log(arguments)
-//     return a+b;
-// };
-// addExpr(2,5)
-// addExpr(2,5,4,3) //Wie absurd ist das hier einfach mehr hinzufügen zu dürfen? Alter!
-//
-// const addArrow = (a,b) => {
-//     // console.log(arguments) //Keine Arguments in Arrow Functions
-//     return a+b;
-// };
-// addArrow(2,3);
-// addArrow(2,3,4,5)
-//
-// let age = 41;
-// let oldAge = age;
-// age = 42;
-// console.log(age);
-// console.log(oldAge);
-//
-// const me = {
-//     name: 'meike',
-//     age: 41
-// }
-//
-// const friend = me;
-// friend.age = 27;
-//
-// console.log('friend: ',friend )
-// console.log('me: ', me)
+let [main, , secondary] = restaurant.categories;
+console.log(main,secondary);
 
-//Primitive Types
-let lastname = 'Williams';
-let oldLastname = lastname;
-lastname = 'Davis';
+[main, secondary] = [secondary, main]; //to switch the variables
+console.log(main,secondary);
 
-//Reference Types
-const jessica = {
-    firstname: 'Jessica',
-    lastname: 'Williams',
-    age: 27
-}
+console.log(restaurant.order(2,0));
+const [starter, mainCourse] = restaurant.order(2,0);
+console.log(starter, mainCourse);
 
-const marriedJessica = jessica;
-marriedJessica.lastname = 'Davis'; //Nicht das gewünschte weil Beide nun geändert
-console.log(jessica);
-console.log(marriedJessica);
-// marriedJessica = {} - geht nicht weil const - let würde gehen, ist aber auch nicht was wir wollen
+//Nested Destructing
+const nested = [2,4,[5,6]];
+const [i,,[j,k]] = nested;
+console.log(i,j,k);
 
-
-const jessica2 = {
-    firstname: 'Jessica',
-    lastname: 'Williams',
-    age: 27,
-    family: ['Alice', 'Bob']
-}
-
-const jessicaCopy = Object.assign({}, jessica2); //Nur erste Ebene wird kopiert, damit Objecte darin wieder nur Adressen....
-
-jessicaCopy.lastname = 'Davis';
-console.log(jessica2);
-console.log(jessicaCopy);
-
-jessicaCopy.family.push('Mary');
-jessicaCopy.family.push('John');
-console.log(jessica2);
-console.log(jessicaCopy);
+//Default Values
+const [p = 1, q = 1, r = 1] = [8,9];
+console.log(p,q,r);
 
