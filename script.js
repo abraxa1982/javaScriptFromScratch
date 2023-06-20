@@ -29,8 +29,24 @@ const restaurant = {
 
   order: function(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  }
+  },
+
+  orderDelivery: function({starterIndex =1, mainIndex = 0, time='20:00', address}) {
+    console.log(
+        `Order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}
+        will be delivered to ${address} at ${time}`);
+  },
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Altendeicher Chaussee 98',
+  mainIndex: 2,
+  starterIndex: 2,
+})
+
+restaurant.orderDelivery({starterIndex:3, address:'Klevendeicher Chaussee 27'});
+/*
 
 const arr = [2,3,4];
 const [x,y,z] = arr; //destructuring, not destroying
@@ -54,4 +70,26 @@ console.log(i,j,k);
 //Default Values
 const [p = 1, q = 1, r = 1] = [8,9];
 console.log(p,q,r);
+*/
 
+const {name, openingHours, categories} = restaurant; //die namen müssen die der properties im Objekt sein
+console.log(name, openingHours, categories);
+
+//Change Vaiables
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default values
+const {menu = [], starterMenu: starters = []} = restaurant;
+console.log(menu, starters);
+
+//Mutating Variables
+let a = 111;
+let b= 999;
+const obj = {a:23, b:7, c:14};
+
+({ a,b } = obj); // JS erwartet einen Codeblock wenn die Zeile mit { beginnt, deswegen muss der ganze Bums in Klammern
+
+//Nested Objects
+const {fri: {open, close}} = openingHours;
+console.log(open, close);
