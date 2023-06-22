@@ -36,19 +36,56 @@ const restaurant = {
         `Order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}
         will be delivered to ${address} at ${time}`);
   },
+
+  oderPasta: function(ing1, ing2, ing3) {
+    console.log(`here is your delicious Pasta with ${ing1}, ${ing2} and ${ing3}.`)
+  },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
+// Spread -> unpack an array, REST -> pack Element to an array --- both are ...
+// SPREAD because on Right side of =
+const arr = [1,2,...[3,4]]; //Spread ->
+// Rest, on the left hab of the =
+const [a,b, ...others] = [1,2,3,4,5];
+console.log(a,b, others);
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Altendeicher Chaussee 98',
-  mainIndex: 2,
-  starterIndex: 2,
-})
+//rest element muss das letzte Element sein, weil es den Rest einsammelt
+const [pizza, , risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, risotto, otherFood)
 
-restaurant.orderDelivery({starterIndex:3, address:'Klevendeicher Chaussee 27'});
-/*
+const {sat, ...weekdays} = restaurant.openingHours;
+console.log(weekdays)
 
-const arr = [2,3,4];
+//Functions - immt viele Werte entgegen und wirft sie in ein array
+
+const add = function(...numbers) {
+  let sum = 0;
+  for(let i=0; i<numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+}
+
+add(2,3);
+add(5,3,7,2);
+add(8,2,5,3,2,1,4);
+
+const x=[23,5,7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'mangold', 'brokkoli');
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Altendeicher Chaussee 98',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// })
+//
+// restaurant.orderDelivery({starterIndex:3, address:'Klevendeicher Chaussee 27'});
+// /*
+
+/*const arr = [2,3,4];
 const [x,y,z] = arr; //destructuring, not destroying
 console.log(x,y,z)
 
@@ -71,25 +108,67 @@ console.log(i,j,k);
 const [p = 1, q = 1, r = 1] = [8,9];
 console.log(p,q,r);
 */
-
-const {name, openingHours, categories} = restaurant; //die namen müssen die der properties im Objekt sein
-console.log(name, openingHours, categories);
-
-//Change Vaiables
-const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
-console.log(restaurantName, hours, tags);
-
-//Default values
-const {menu = [], starterMenu: starters = []} = restaurant;
-console.log(menu, starters);
-
-//Mutating Variables
-let a = 111;
-let b= 999;
-const obj = {a:23, b:7, c:14};
-
-({ a,b } = obj); // JS erwartet einen Codeblock wenn die Zeile mit { beginnt, deswegen muss der ganze Bums in Klammern
-
-//Nested Objects
-const {fri: {open, close}} = openingHours;
-console.log(open, close);
+//
+// const {name, openingHours, categories} = restaurant; //die namen müssen die der properties im Objekt sein
+// console.log(name, openingHours, categories);
+//
+// //Change Vaiables
+// const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+// console.log(restaurantName, hours, tags);
+//
+// //Default values
+// const {menu = [], starterMenu: starters = []} = restaurant;
+// console.log(menu, starters);
+//
+// //Mutating Variables
+// let a = 111;
+// let b= 999;
+// const obj = {a:23, b:7, c:14};
+//
+// ({ a,b } = obj); // JS erwartet einen Codeblock wenn die Zeile mit { beginnt, deswegen muss der ganze Bums in Klammern
+//
+// //Nested Objects
+// const {fri: {open, close}} = openingHours;
+// console.log(open, close);
+//
+// const arr = [7,8,9];
+// const badNewArr = [1,2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+//
+// const newArr = [1,2, ...arr]; //spread operator, nimm alle Elemente aus dem array und schreibt sie in ein neues
+// console.log(newArr);
+// console.log(...newArr);
+//
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+// const mainMenuCopy = [...restaurant.mainMenu];
+//
+// //join 2 Arrays
+//
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu)
+//
+// //Iterables: arrays, strings, maps, sets. Not Objects
+//
+// const str='Meike';
+// const letters = [...str, ' ', 'Z.'];
+// console.log(letters);
+// console.log(...str);
+// //console.log(`${...str} Z.`) -> geht nicht weil das keine Kommaseparierten Values (mehrere) erwartet
+//
+// // const ingredients = [
+// //     prompt('Let\'s make Pasta! Ingredient 1?'),
+// //   prompt(' Ingredient 2?'),
+// //   prompt(' Ingredient 3?'),
+// // ];
+// // console.log(ingredients);
+// // restaurant.oderPasta(...ingredients);
+//
+// //Seit ES 2018 auch Objects, auch wenn sie keine iterals sind
+//
+// const newRestaurant= {founded: '1998',...restaurant, founder: 'Guiseppe'};
+// console.log(newRestaurant);
+//
+// const restaurantCopy = {...restaurant};
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name, restaurant.name);
