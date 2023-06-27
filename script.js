@@ -46,7 +46,37 @@ const restaurant = {
   },
 };
 
-//use any data type, return any data type
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi'
+}
+
+//Or Assignment Operator - geht wieder nicht mit falsy Values
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish assignment Operator
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+
+// rest2.owner = rest2.owner && '<ANONYMOUS>'
+// rest1.owner = rest1.owner && '<ANONYMOUS>'
+
+//And assignment Operator
+rest2.owner &&= '<ANONYMOUS>'
+rest1.owner &&= '<ANONYMOUS>'
+
+console.log(rest1);
+console.log(rest2);
+/*//use any data type, return any data type
 //short circuiting (if the first Value is a truthy Value, it will immediatly return the value, else ist will return the second
 console.log('-------OR-------')
 console.log(3 || 'Meike'); // 3
@@ -76,7 +106,7 @@ console.log('-------Nullish Coalescing Operator-------')
 // Nullish: null and undefined -> 0 und '' sind nicht falsy
 restaurant.numGuests = 0;
 const guestsCorrect = restaurant.numGuests ?? 10;
-console.log(guestsCorrect);
+console.log(guestsCorrect);*/
 
 // // Spread -> unpack an array, REST -> pack Element to an array --- both are ...
 // // SPREAD because on Right side of =
