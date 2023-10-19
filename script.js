@@ -16,7 +16,7 @@ const openingHours= {
     open: 11,
     close: 23,
   },
-  [`day-${2+4}`]: {
+  [weekdays[6]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -32,7 +32,7 @@ const restaurant = {
 
   //ES6 Enhanced object literals -> no need to assign when it has the same name
   // openingHours,
-  openingHours: {
+ openingHours: {
     thu: {
       open: 12,
       close: 22,
@@ -76,26 +76,28 @@ const restaurant = {
 
 //console.log(restaurant.openingHours?.mon?.open); //When openingHours not exists.  in PHP ab 8 : $customer->getAddress()?->getCoordinates()->getLongitude()->format();
 
+//
+// const days = [
+//   'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'
+// ];
+//
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+//
+// //Methods
+// console.log(restaurant.order?.(0,1) ?? 'Method does not exist')
+// console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist')
+//
+// //Arrays
+// const users = [
+//   {name: "Meike", email: "aa@bb.de"},
+//   {name: "Meike2", email: "aa@bb.de"}
+// ];
+// console.log(users[0]?.name ?? 'User array empty');
+//
 
-const days = [
-  'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'
-];
-
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`On ${day} we open at ${open}`);
-}
-
-//Methods
-console.log(restaurant.order?.(0,1) ?? 'Method does not exist')
-console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist')
-
-//Arrays
-const users = [
-  {name: "Meike", email: "aa@bb.de"},
-  {name: "Meike2", email: "aa@bb.de"}
-];
-console.log(users[0]?.name ?? 'User array empty');
 
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 //
@@ -104,3 +106,27 @@ console.log(users[0]?.name ?? 'User array empty');
 // for (const [i, el] of menu.entries()) {
 //   console.log(`${i} : ${el}`);
 // }
+
+//PropertyNames
+const properties =Object.keys(openingHours);
+console.log(properties);
+
+let openString = `we are open on ${properties.length} days : `;
+
+for (const day of properties) {
+  openString += `${day}, `
+}
+
+console.log(openString);
+
+// PropertyValues
+
+const values = Object.values(openingHours);
+console.log(values)
+
+//Popoerty Entries
+
+const entries = Object.entries(openingHours);
+for (const [key, {open, close}] of entries) {
+  console.log(`on ${key} we open at ${open} and close at ${close}`);
+}
